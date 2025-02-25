@@ -5,6 +5,8 @@ using Random = UnityEngine.Random;
 public class WhackADot : MonoBehaviour
 {
     public float range = 5;
+    [SerializeField] private Wasd wasd;
+
     
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -20,6 +22,7 @@ public class WhackADot : MonoBehaviour
         //throw new NotImplementedException();
        
         GameManager.instance.Score++;
+        wasd.ShrinkMatt();
         
         transform.position = new Vector3(
             Random.Range(-range, range),
